@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
 using MVCProxy.Core.Application;
 
 namespace MVCProxy.Tests.API
@@ -12,7 +9,7 @@ namespace MVCProxy.Tests.API
         {
             config.MapHttpAttributeRoutes();
 
-            config.EnableProxy();
+            //config.EnableProxy();
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

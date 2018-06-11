@@ -1,6 +1,5 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
-using WebApplication1;
 
 namespace MVCProxy.Tests.API
 {
