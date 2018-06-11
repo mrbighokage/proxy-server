@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using MVCProxy.Core.Application;
 
 namespace MVCProxy.Tests.API
 {
@@ -10,6 +11,8 @@ namespace MVCProxy.Tests.API
         public static void Register(HttpConfiguration config)
         {
             config.MapHttpAttributeRoutes();
+
+            config.EnableProxy();
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
