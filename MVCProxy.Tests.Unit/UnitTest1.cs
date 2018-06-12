@@ -6,8 +6,15 @@ namespace MVCProxy.Tests.Unit
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void ProxyBilder()
         {
+            Assert.Fail();
+        }
+
+        [TestMethod]
+        public void ProxyMessage()
+        {
+            Assert.Fail();
         }
     }
 }
