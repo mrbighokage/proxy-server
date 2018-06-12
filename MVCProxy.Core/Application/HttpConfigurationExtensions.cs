@@ -1,53 +1,30 @@
-﻿using System;
+﻿using MVCProxy.Core.View;
+using System.Collections.Generic;
 using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web;
 
 namespace MVCProxy.Core.Application
 {
     public static class HttpConfigurationExtensions
     {
-        public static void EnableProxy(this HttpConfiguration httpConfig)
+        public static void EnableProxy(this HttpConfiguration httpConfig, string host, int port,
+            List<ProxyHttpRoute> proxyRoutes)
         {
-            httpConfig.Routes.MapHttpRoute(
-                name: "Proxy",
-                routeTemplate: "{*path}",
-                handler: HttpClientFactory.CreatePipeline(
-                    innerHandler: new HttpClientHandler(),
-                    handlers: new DelegatingHandler[]
-                    {
-                        new ProxyHandler()
-                    }
-                ),
-                defaults: new { path = RouteParameter.Optional },
-                constraints: null
-            );
-        }
-
-        public class ProxyHandler : DelegatingHandler
-        {
-            private static HttpClient client = new HttpClient();
-
-            protected override async Task<HttpResponseMessage> SendAsync(
-                HttpRequestMessage request,
-                CancellationToken cancellationToken)
+            foreach (var route in proxyRoutes)
             {
-                var forwardUri = new UriBuilder(request.RequestUri.AbsoluteUri);
-                forwardUri.Host = "localhost";
-                forwardUri.Port = 62904;
-                request.RequestUri = forwardUri.Uri;
-
-                if (request.Method == HttpMethod.Get)
-                {
-                    request.Content = null;
-                }
-
-                request.Headers.Add("X-Forwarded-Host", request.Headers.Host);
-                request.Headers.Host = "localhost:62904";
-                var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
-                return response;
+                httpConfig.Routes.MapHttpRoute(
+                    name: route.Name,
+                    routeTemplate: route.RouteTemplate,
+                    handler: HttpClientFactory.CreatePipeline(
+                        innerHandler: new HttpClientHandler(),
+                        handlers: new DelegatingHandler[]
+                        {
+                            new ProxyHandler(host, port)
+                        }
+                    ),
+                    defaults: route.Defaults,
+                    constraints: route.Constraints
+                );
             }
         }
     }
