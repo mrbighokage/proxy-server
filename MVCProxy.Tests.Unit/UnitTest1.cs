@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Proxy_server.Tests
+namespace MVCProxy.Tests.Unit
 {
     [TestClass]
     public class UnitTest1
