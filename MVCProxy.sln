@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCProxy.Core", "MVCProxy.Core\MVCProxy.Core.csproj", "{5E227DB8-9194-4C22-83D3-955A69D9F470}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyServer", "MVCProxy.Core\ProxyServer.csproj", "{5E227DB8-9194-4C22-83D3-955A69D9F470}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyServer.Tests", "ProxyServer.Tests\ProxyServer.Tests.csproj", "{2E1FEB1A-7993-4F2B-B1A6-23FB8E760DA4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{5E227DB8-9194-4C22-83D3-955A69D9F470}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E227DB8-9194-4C22-83D3-955A69D9F470}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E227DB8-9194-4C22-83D3-955A69D9F470}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E1FEB1A-7993-4F2B-B1A6-23FB8E760DA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E1FEB1A-7993-4F2B-B1A6-23FB8E760DA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E1FEB1A-7993-4F2B-B1A6-23FB8E760DA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E1FEB1A-7993-4F2B-B1A6-23FB8E760DA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
