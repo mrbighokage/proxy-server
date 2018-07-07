@@ -3,9 +3,9 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MVCProxy.Core.Application
+namespace MVCProxy.Core.Classes
 {
-    internal class ProxyHandler : DelegatingHandler
+    public class ProxyHandler : DelegatingHandler
     {
         private readonly HttpClient _client;
         private readonly string _host;
@@ -28,11 +28,13 @@ namespace MVCProxy.Core.Application
                 Port = _port
             };
 
-            // replace the port to the backend target port
             request.RequestUri = forwardUri.Uri;
 
-            // replace the Host header when making the request to the 
-            // backend node
+            if (request.Method == HttpMethod.Get)
+            {
+                request.Content = null;
+            }
+
             request.Headers.Host = $"{_host}:{_port}";
             var response = await _client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
             return response;
