@@ -53,10 +53,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application\HttpConfigurationExtensions.cs" />
-    <Compile Include="Application\ProxyHandler.cs" />
+    <Compile Include="Extenssions\HttpConfigurationExtensions.cs" />
+    <Compile Include="Classes\ProxyHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\ProxyHttpRoute.cs" />
+    <Compile Include="Classes\ProxyHttpRoute.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
